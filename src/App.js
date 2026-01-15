@@ -65,7 +65,7 @@ console.log("Visitor ID:", visitor_id);
   const [openDialog, setOpenDialog] = useState(false);
 
   const GOOGLE_SCRIPT_URL = //endpoint that we will send requests to
-    'https://script.google.com/macros/s/AKfycbwf0b0jY90hDmPEidY3whGkj668mOvoc2IQuV8ake4U7u5VgZvRR2d9l2fNBzjwZMTo-A/exec';
+    'https://script.google.com/macros/s/AKfycbzPYQgw9e08S65JNx7jxowZKbyATwmkxjh_voKfYU3iymHq90OVQZQlK_l7YVcR6hsr_Q/exec';
 
   const handleSubmit = async (e) => { //pause and wait to run until form is submitted
     e.preventDefault(); //stops the browser from refreshing the page and wiping our state
