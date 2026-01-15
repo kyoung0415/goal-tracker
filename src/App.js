@@ -18,6 +18,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { HashRouter as Router } from "react-router-dom";
 
 function App() {
   function getOrCreateVisitorId() {
