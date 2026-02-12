@@ -27,10 +27,8 @@ function GoalContainer({
     <>
       <div className="goal-container">
         {Object.keys(groupedData).map((category) => {
-          // Filter items for this visitor first
           const visitorItems = groupedData[category].filter(item => item.visitorId === visitor_id);
           
-          // Only render the category if there are items for this visitor
           if (visitorItems.length === 0) return null;
           
           return (
