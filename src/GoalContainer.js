@@ -40,50 +40,51 @@ function GoalContainer({
                 const progress = calculateProgress(item);
                 const lighterColor = lightenHex(item.bgColor, 40);
 
-              return (
-                <div
-                  key={item.rowIndex}
-                  className="goal-div"
-                  style={{
-                    background: `linear-gradient(to right, ${item.bgColor} ${progress}%, ${lighterColor} ${progress}%)`,
-                    color: getContrastColor(item.bgColor),
-                    fontFamily: 'Roboto, sans-serif',
-                    lineHeight: 1.5,
-                    marginBottom: '16px',
-                    paddingLeft: 15,
-                    fontWeight: 400
-                  }}
-                >
-                  <p>
-                    {item.description} <br />
-                    {item.currentValue}/{item.endValue} {item.units} <br />
-                    {progress}%
-                  </p>
-                  <p 
-                    onClick={() => handleCopyColor(item.bgColor)}
-                    style={{ 
-                      color: darkenHex(item.bgColor), 
-                      position: 'absolute', 
-                      right: 25, 
-                      top: 62,
-                      cursor: 'pointer',
-                      userSelect: 'none'
+                return (
+                  <div
+                    key={item.rowIndex}
+                    className="goal-div"
+                    style={{
+                      background: `linear-gradient(to right, ${item.bgColor} ${progress}%, ${lighterColor} ${progress}%)`,
+                      color: getContrastColor(item.bgColor),
+                      fontFamily: 'Roboto, sans-serif',
+                      lineHeight: 1.5,
+                      marginBottom: '16px',
+                      paddingLeft: 15,
+                      fontWeight: 400
                     }}
-                    title="Click to copy"
                   >
-                    {item.bgColor}
-                  </p>
-                  <IconButton
-                    onClick={() => handleEdit(item)}
-                    sx={{ position: 'absolute', right: 20, top: 7, color: getContrastColor(item.bgColor) }}
-                  >
-                    <EditIcon sx={{ color: darkenHex(item.bgColor) }} />
-                  </IconButton>
-                </div>
-              );
-            })}
-          </div>
-        ))}
+                    <p>
+                      {item.description} <br />
+                      {item.currentValue}/{item.endValue} {item.units} <br />
+                      {progress}%
+                    </p>
+                    <p 
+                      onClick={() => handleCopyColor(item.bgColor)}
+                      style={{ 
+                        color: darkenHex(item.bgColor), 
+                        position: 'absolute', 
+                        right: 25, 
+                        top: 62,
+                        cursor: 'pointer',
+                        userSelect: 'none'
+                      }}
+                      title="Click to copy"
+                    >
+                      {item.bgColor}
+                    </p>
+                    <IconButton
+                      onClick={() => handleEdit(item)}
+                      sx={{ position: 'absolute', right: 20, top: 7, color: getContrastColor(item.bgColor) }}
+                    >
+                      <EditIcon sx={{ color: darkenHex(item.bgColor) }} />
+                    </IconButton>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
       <Snackbar
         open={snackbarOpen}
