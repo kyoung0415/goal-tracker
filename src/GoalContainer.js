@@ -26,14 +26,19 @@ function GoalContainer({
   return (
     <>
       <div className="goal-container">
-        {Object.keys(groupedData).map((category) => (
-          <div className="goal-column" key={category}>
-            <h2 style={{ color: darkMode ? '#fff' : '#000' }}>{category}</h2>
-            {groupedData[category]
-              .filter(item => item.visitorId === visitor_id)
-              .map((item) => {
-              const progress = calculateProgress(item);
-              const lighterColor = lightenHex(item.bgColor, 40);
+        {Object.keys(groupedData).map((category) => {
+          // Filter items for this visitor first
+          const visitorItems = groupedData[category].filter(item => item.visitorId === visitor_id);
+          
+          // Only render the category if there are items for this visitor
+          if (visitorItems.length === 0) return null;
+          
+          return (
+            <div className="goal-column" key={category}>
+              <h2 style={{ color: darkMode ? '#fff' : '#000' }}>{category}</h2>
+              {visitorItems.map((item) => {
+                const progress = calculateProgress(item);
+                const lighterColor = lightenHex(item.bgColor, 40);
 
               return (
                 <div
